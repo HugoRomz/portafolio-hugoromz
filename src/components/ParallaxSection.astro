@@ -1,0 +1,222 @@
+---
+// Este componente se ejecutará en el cliente
+---
+
+<section class="home">
+    <img src="/src/assets/parallax/montain4.webp" alt="montain4" class="montain4">
+    <img src="/src/assets/parallax/montain3.webp" alt="montain3" class="montain3">
+    <div class="content">
+        <h1>RAFAEL ROSALES</h1>
+        <h2>SOFTWARE ENGINEER</h2>
+        
+        <a href="/path-to-curriculum.pdf" class="btn-curriculum">
+            <span class="curriculum-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentcolor"><path d="M439-82q-76-8-141.5-42.5t-113.5-88Q136-266 108.5-335T81-481q0-155 102.5-268.5T440-880v80q-121 17-200 107.5T161-481q0 121 79 211.5T439-162v80Zm40-198L278-482l57-57 104 104v-245h80v245l103-103 57 58-200 200Zm40 198v-80q43-6 82.5-23t73.5-43l58 58q-47 37-101 59.5T519-82Zm158-652q-35-26-74.5-43T520-800v-80q59 6 113 28.5T733-792l-56 58Zm112 506-56-57q26-34 42-73.5t22-82.5h82q-8 59-30 113.5T789-228Zm8-293q-6-43-22-82.5T733-677l56-57q38 45 61 99.5T879-521h-82Z"/></svg>
+            </span>
+                Download CV
+        </a>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <p>Email</p>
+                <a href="mailto:rafael.rosales1405@gmail.com">rafael.rosales1405@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <p>Github</p>
+                <a href="https://github.com/hugoromz" target="_blank">Go to Github</a>
+            </div>
+            <div class="contact-item">
+                <p>LinkedIn</p>
+                <a href="https://linkedin.com/in/hugorosme" target="_blank">Go to LinkedIn</a>
+            </div>
+        </div>
+    </div>
+    <img src="/src/assets/parallax/montains1.webp" alt="montains1" class="montains1">
+  </section>
+  
+
+  
+  <script>
+    document.addEventListener('scroll', function() {
+      const content = document.querySelector('.content')
+
+      const montain4 = document.querySelector('.montain4')
+      const montain3 = document.querySelector('.montain3')
+
+      if (content) {
+        let value = window.scrollY
+        content.style.marginTop = value * 1.1 + 'px';
+        montain4.style.marginBottom = value * 0.1 + 'px'
+        montain3.style.marginTop = value * 0.3 + 'px'
+      }
+    })
+  </script>
+  
+  <style>
+    .home {
+      display: flex;
+      height: 100svh;
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .home img {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      pointer-events: none;
+    }
+  
+    .home .content {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+    }
+  
+    h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+    h2:after, h2:before {
+	  content: '';
+	  width: 0;
+	  height: 0;
+
+	}
+  
+    .btn-curriculum {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", sans-serif;
+      font-weight: 500;
+      padding: 8px 30px;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 15px;
+      border: 2px solid white;
+      margin-bottom: 30px;
+    }
+  
+    .btn-curriculum:hover {
+      background-color: var(--white-color);
+      color: var(--bg-color);
+    }
+  
+    .btn-curriculum .curriculum-icon {
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+    }
+  
+    .btn-curriculum .curriculum-icon svg {
+      fill: var(--white-color);
+    }
+  
+    .btn-curriculum:hover .curriculum-icon svg {
+      fill: var(--bg-color);
+    }
+  
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      font-size: 0.9rem;
+      padding: 8px 30px;
+      border: 2px solid white;
+      border-radius: 30px;
+      white-space: nowrap;
+    }
+  
+    .contact-item p {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      font-size: 1rem;
+      color: #fff;
+      font-weight: 700;
+    }
+  
+    .contact-item a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+  
+    .contact-item a:hover {
+      color: #00c2ff;
+    }
+  
+    /* Media query para tablets */
+    @media (max-width: 1024px) {
+        .home {
+        flex-direction: column;
+        height: 90svh;
+      }
+  
+      h1 {
+        font-size: 3rem;
+        white-space: nowrap;
+        margin-top: 45px;
+  
+      h2 {
+        font-size: 1.5rem;
+      }
+  
+      .btn-curriculum {
+        font-size: 0.9rem;
+        padding: 8px 25px;
+      }
+  
+      .contact-info {
+        gap: 30px;
+        font-size: 0.8rem;
+      }
+    }
+  
+    /* Media query para móviles */
+    @media (max-width: 768px) {
+      .home {
+        flex-direction: column;
+        height: 85svh;
+      }
+  
+      h1 {
+        font-size: 2.5rem;
+        white-space: nowrap;
+        margin-top: 45px;
+      }
+  
+      h2 {
+        font-size: 1.2rem;
+      }
+  
+      .btn-curriculum {
+        font-size: 0.8rem;
+        padding: 6px 20px;
+        border-radius: 10px;
+      }
+  
+      .contact-info {
+        flex-direction: column;
+        gap: 20px;
+        padding: 6px 20px;
+        font-size: 0.7rem;
+      }
+  
+      .home .content {
+        top: 30%;
+      }
+    }
+  </style>
+  

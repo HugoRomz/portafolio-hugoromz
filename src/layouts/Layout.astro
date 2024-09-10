@@ -1,0 +1,95 @@
+---
+import Header from '../components/Header.astro';
+
+
+interface Props{
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Astro description">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/favicon.ico" type="image/svg+xml">
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+</head>
+<body>
+    <Header />
+   <div class="container-wrapper">
+    <slot />
+    <!-- <Footer/> -->
+   </div>
+</body>
+</html>
+
+<style is:global>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&display=swap');
+:root{
+    --bg-color: #12151B;
+    --primary-color: #18DCFF;
+    --white-color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--white-color);
+  font-family: "Frank Ruhl Libre", serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    background-image: url(../assets/bg-star-pixels.webp);
+    background-repeat: repeat;
+}
+
+
+h2 {
+	  font-size: 2rem;
+	  font-weight: 700;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  text-transform: uppercase;
+	  white-space: nowrap;
+	}
+  
+	 h2:after, h2:before {
+	  content: '';
+	  width: 150px;
+	  height: 2px;
+	  background: var(--primary-color);
+	  margin: 0 20px;
+	}
+
+    @media (max-width: 1024px) {
+ 
+	   h2 {
+		font-size: 35px;
+	  }
+  
+	}
+  
+	@media (max-width: 768px) {
+
+	   h2 {
+		font-size: 1.5rem;
+		text-align: center;
+	  }
+	}
+
+
+</style>

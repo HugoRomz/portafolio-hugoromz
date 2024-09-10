@@ -1,0 +1,85 @@
+---
+
+import { api } from "../config/api"
+import Card from "./Card.astro";
+
+const projects = await api.getProjects() ;
+// const certificates = await api.getCertificates() ;}
+
+
+
+---
+<section class="projects" id="projects">
+    <h2>Projects</h2>
+
+  <div class="container swiper">
+    <div class="swiper-wrapper">
+      
+      {
+        projects.map((project) => <div class="swiper-slide"> <Card {project} /></div>)
+      }
+      </div>
+
+  <!-- Si necesitamos botones de navegación -->
+
+  <div class="swiper-pagination"></div>
+</div>
+</section>
+
+<script>
+  import Swiper from "swiper";
+  import 'swiper/css';
+
+  import { Navigation, Pagination } from "swiper/modules";
+  import "swiper/css/navigation"
+  import "swiper/css/pagination"
+
+  const swiper = new Swiper(".swiper", {
+    modules: [Navigation,Pagination], 
+    loop: true,            
+    slidesPerView: 3,      
+    centeredSlides:true,
+    grabCursor:true,
+    spaceBetween: 25,
+    pagination:{
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+
+    breakpoints:{
+      0:{
+        slidesPerView: 1,    
+      },
+      520:{
+        slidesPerView: 2,    
+      },
+      950:{
+        slidesPerView: 3,    
+      }
+    },
+
+  });
+
+</script>
+
+<style>
+  .projects{
+    margin: 30px 20px 45px 20px ;
+  }
+  .swiper {
+      width: 90%;
+      height: 50svh
+    }
+
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+
+</style>
+

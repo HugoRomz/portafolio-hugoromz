@@ -1,16 +1,153 @@
 ---
+import Layout from "../layouts/Layout.astro";
+
+import ParallaxSection from "../components/ParallaxSection.astro";
+import SectionExperiencie from "../components/SectionExperiencie.astro"
+import SectionProjects from "../components/SectionProjects.astro"
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+
+
+<Layout title="Porfolio - Rafael Rosales - Web Developer - Software Engineer">
+
+	<ParallaxSection/>
+	<main>
+		<section class="about" id="about">
+			<h2>About Me</h2>
+			<div class="about-content">
+			  <article class="about-text">
+				<p>
+				  Hi, I'm Rafael Rosales, a passionate web developer and software engineer 
+				  specialized in creating dynamic, responsive, and user-friendly websites. 
+				  With a strong background in software development, I enjoy bringing designs 
+				  to life with clean code and efficient functionality. Whether it's building 
+				  front-end interfaces or developing back-end services, I'm always excited to 
+				  tackle new challenges and create innovative solutions for businesses and users alike.
+				</p>
+			  </article>
+			  <figure class="about-image">
+				<img src="https://dummyimage.com/750x800/996633/fff" alt="Rafael Rosales - Web Developer" />
+			  </figure>
+			</div>
+		  </section>
+		  <SectionExperiencie />
+		  <SectionProjects/>
+	</main>
+
+	
+</Layout>
+
+<style>
+	main {
+	  max-width: 1200px;
+	  margin: auto;
+	  padding: 0 20px;
+
+	}
+  
+	.about {
+	  display: flex;
+	  justify-content: center;
+	  flex-direction: column;
+	  color: var(--white-color);
+	  padding: 100px 0;
+	}
+	  
+	.about-text p {
+	  width: 100%;
+	  font-size: 1.3rem;
+	  line-height: 1.8;
+	  text-wrap: balance;
+	  font-family: "Poppins", sans-serif;
+	}
+  
+	.about-image {
+	  flex: 0 0 300px;
+	  display: flex;
+	  justify-content: center;
+	}
+  
+	.about-image img {
+	  width: 100%;
+	  height: auto;
+	  border-radius: 10px;
+	}
+
+	.about-content {
+	  width: 100%;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  gap: 20px;
+	  padding-top: 30px;
+	}
+
+
+  
+	@media (max-width: 1024px) {
+	  main {
+		max-width: 900px;
+	  }
+  
+	  .about {
+		padding: 40px;
+	  }
+  
+	   h2 {
+		font-size: 35px;
+	  }
+  
+	  p {
+		font-size: 1rem;
+		line-height: 1.6;
+	  }
+  
+	  .about-content {
+		flex-direction: column;
+		text-align: center;
+	  }
+  
+	  .about-image {
+		margin-top: 20px;
+	  }
+	  .about-image img {
+	  width: 50%;
+	  height: auto;
+	  border-radius: 10px;
+	}
+	}
+  
+	@media (max-width: 768px) {
+	  .about {
+		padding: 30px;
+	  }
+	  .about-image img {
+	  width: 80%;
+	  height: auto;
+	  border-radius: 10px;
+	}
+  
+	   h2 {
+		font-size: 1.5rem;
+		text-align: center;
+	  }
+  
+	  p {
+		font-size: 0.9rem;
+		line-height: 1.6;
+	  }
+  
+	  main {
+		padding: 0 10px;
+	  }
+  
+	  .about-content {
+		flex-direction: column;
+	  }
+  
+	  .about-image {
+		margin-top: 15px;
+	  }
+	}
+  </style>
