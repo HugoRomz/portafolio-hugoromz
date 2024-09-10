@@ -18,7 +18,7 @@ const { project } = Astro.props;
         </p>
         <div class="container-tags">
             {
-                project.tecnologias.map((tecnologia) => <span class="tag tag-color">{tecnologia}</span>)
+                project.tecnologias.map((tecnologia: unknown) => <span class="tag tag-color">{tecnologia}</span>)
             }
 
         </div>

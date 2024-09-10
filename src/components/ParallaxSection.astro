@@ -38,18 +38,24 @@
   
   <script>
     document.addEventListener('scroll', function() {
-      const content = document.querySelector('.content')
-
-      const montain4 = document.querySelector('.montain4')
-      const montain3 = document.querySelector('.montain3')
-
+      const content = document.querySelector('.content') as HTMLElement | null;
+      const montain4 = document.querySelector('.montain4') as HTMLElement | null;
+      const montain3 = document.querySelector('.montain3') as HTMLElement | null;
+  
       if (content) {
-        let value = window.scrollY
+        let value = window.scrollY;
+  
+        // Check if montain4 and montain3 exist before using them
+        if (montain4) {
+          montain4.style.marginBottom = value * 0.1 + 'px';
+        }
+        if (montain3) {
+          montain3.style.marginTop = value * 0.3 + 'px';
+        }
+        
         content.style.marginTop = value * 1.1 + 'px';
-        montain4.style.marginBottom = value * 0.1 + 'px'
-        montain3.style.marginTop = value * 0.3 + 'px'
       }
-    })
+    });
   </script>
   
   <style>
