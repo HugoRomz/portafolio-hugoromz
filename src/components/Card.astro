@@ -1,11 +1,9 @@
 ---
 const { project } = Astro.props;
 
-
-
 ---
 
-<div class="card swiper-slide">
+<div class="card">
     <div class="card-header">
         <img src={project.imagenes[0]} alt={project.nombre} />
     </div>
@@ -31,11 +29,11 @@ const { project } = Astro.props;
         overflow: hidden;
         width: 300px;
         height: auto;
+        margin-bottom: 100px;
         padding: 10px;
         border: 1px solid rgba(255, 255, 255, 0.116);
         background-color: rgba(255, 255, 255, 0.068);
         box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-
         backdrop-filter: blur(15px);
     }
     .card-header img {

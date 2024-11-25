@@ -1,25 +1,28 @@
 ---
 
 import { api } from "../config/api"
-import Card from "./Card.astro";
+import Card from "@components/Card.astro";
+import Certificate from "@components/Certificate.astro"
 
-const projects = await api.getProjects() ;
-// const certificates = await api.getCertificates() ;}
+// const projects = await api.getProjects() ;
+const certificates = await api.getCertificates() ;
 
 
 ---
-<section class="projects" id="projects">
-    <h2>Projects</h2>
+<section class="certificates" id="certificates">
+    <h2>Certificates</h2>
 
     <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
     slides-per-view="auto" loop="true"  coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
     coverflow-effect-modifier="1" coverflow-effect-slide-shadows="false" navigation="true" >      
       {
-        projects.map((project) => 
+        certificates.map((certificate) => 
         <swiper-slide>
-           <Card {project} />
+           <Certificate {certificate}/>
         </swiper-slide>)
       }
+
+      
     
   </swiper-container>
 </div>
@@ -28,8 +31,8 @@ const projects = await api.getProjects() ;
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 
 <style>
-   .projects{
-    margin: 50px 20px 0 20px ;
+   .certificates{
+    margin: 50px 20px 0 20px;
   }
  swiper-container {
       width: 100%;
